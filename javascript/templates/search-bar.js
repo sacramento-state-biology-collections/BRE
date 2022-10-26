@@ -3,7 +3,7 @@ Vue.component("search-bar", {
     <header>
         <h1>{{title}}</h1>
         <button class="home">home</button>
-        <input type="text" v-model="searchText" />
+        <input type="text" v-model="searchText" placeholder="Search Collection"/>
         <select name="Collections" id="Collections" v-on:change="update">
             <option v-for="option in options" v-bind:value="option">{{option}}</option>
         </select>
@@ -14,7 +14,7 @@ Vue.component("search-bar", {
     return {
       title: "My Collection",
       options: ["All", "Mammals", "Birds", "Reptiles", "Amphibians", "Fish"],
-      searchText: "Search Collection",
+      searchText: "",
       collection: "",
     };
   },
