@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>BRE App</title>
-    </head>
-    <body>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <div id="app">
-            <script id="search-bar" type="text/x-template" src="./templates/search-bar.html"></script>
-            <search-bar></search-bar>
-        </div>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BRE App</title>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <div id="app">
+      <search-bar></search-bar>
+    </div>
+    <script src="./javascript/templates/search-bar.js"></script>
+    <script src="./javascript/templates/start-view.js"></script>
+    <script src="./javascript/templates/table-data-view.js"></script>
+    <script src="./javascript/templates/preview-data-view.js"></script>
+    <script src="./javascript/templates/all-data-view.js"></script>
+    <script src="./javascript/app.js"></script>
+  </body>
 </html>
