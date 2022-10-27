@@ -8,7 +8,26 @@ class Entry {
 }
 
 Vue.component("table-data-view", {
-  template: ``,
+  template: `
+  <div>
+  <table>
+      <tr>
+          <th>{{Headers.Col_1}}</th>
+          <th>{{Headers.Col_2}}</th>
+          <th>{{Headers.Col_3}}</th>
+          <th>{{Headers.Col_4}}</th>
+          <th>Preview Buttons</th> 
+      </tr>
+      <tr v-model="Rows" v-for="entry in Rows">
+          <td>{{entry.Col_1}}</td>
+          <td>{{entry.Col_2}}</td>
+          <td>{{entry.Col_3}}</td>
+          <td>{{entry.Col_4}}</td>
+          <td><button class="preview" v-on:click="loadView">Preview</button></td>
+      </tr>
+  </table>
+</div>
+  `,
   data: function () {
     return {
       Headers: new Entry("Header 1", "Header 2", "Header 3", "Header 4"),
