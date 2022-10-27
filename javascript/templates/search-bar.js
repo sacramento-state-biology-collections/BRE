@@ -5,7 +5,7 @@ Vue.component("search-bar", {
         <header>
             <h1>{{title}}</h1>
             <div id="search-cluster">
-                <button class="home" v-on:click="home"><img id="home-button-img" src="./styles/stylephotos/Home_Button.svg" alt="Home"></button>
+                <button class="home" v-on:click="loadHome"><img id="home-button-img" src="./styles/stylephotos/Home_Button.svg" alt="Home"></button>
                 <input type="text" v-model="searchText" v-bind:placeholder="placeholder"/>
                 <select name="Collections" id="Collections" v-on:change="update">
                     <option v-for="option in options" v-bind:value="option">{{option}}</option>
@@ -34,6 +34,9 @@ Vue.component("search-bar", {
       console.log(
         "searching for " + this.searchText + " in " + this.collection
       );
+    },
+    loadHome: function () {
+      console.log("loading home");
     },
   },
 });
