@@ -8,32 +8,32 @@ class TwoEntries {
 Vue.component("preview-data-view", {
   /*html*/
   template: `
-  <div id="preview-data-view">
-        <div id="left">
-            <img src={{animalPhoto}}></img>
-            <p>Name: {{animalName}}</p>
-        </div>
-        <div id="right">
-            <h1 id="description">
-                Description
-                <button class="back">Back</button>
-            </h1>
-            <p>{{description}}</p>
-            <p>
-                <button class="moreInfo">All Info</button>
-            </p>
-        </div>
+    <div id="preview-data-view">
+      <div id="top">
+        <button class="back">Back</button>
+      </div>
+      <div id="left">
+        <img v-bind:src="animalPhoto" alt="photo">
+        <p>Name: {{animalName}}</p>
+      </div>
+      <div id="right">
+        <h1 id="description">Description</h1>
+        <p v-for="(value, name, index) in description"><b>{{name}}:</b> {{value}}</p>
+      </div>
+      <div id="bottom">
+        <button class="moreInfo">All Info</button>
+      </div>
     </div>
   `,
   data: function () {
     return {
-      Headers: new TwoEntries("Header 1", "Header 2"),
-      Rows: [
-        new TwoEntries("Row 1 Col 1", "Row 1 Col 2"),
-        new TwoEntries("Row 2 Col 1", "Row 2 Col 2"),
-        new TwoEntries("Row 3 Col 1", "Row 3 Col 2"),
-      ],
-      isVisable: false,
+      animalPhoto: "./styles/stylephotos/no_image_image.svg",
+      animalName: "Animal Name",
+      description: {
+        "Scientific Name": "Scientific Name",
+        "Common Name": "Common Name",
+      },
+      isVisible: false,
     };
   },
   methods: {},

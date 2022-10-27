@@ -17,7 +17,7 @@ Vue.component("table-data-view", {
           <th>{{Headers.Col_2}}</th>
           <th>{{Headers.Col_3}}</th>
           <th>{{Headers.Col_4}}</th>
-          <th>Preview Buttons</th> 
+          <th></th> 
         </tr>
         <tr v-for="entry in Rows">
           <td>{{entry.Col_1}}</td>
