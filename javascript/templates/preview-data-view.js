@@ -13,10 +13,10 @@ Vue.component("preview-data-view", {
           <body>Name: animal</body>
       </div>
       <div id="right">
-          <header>
+          <h1>
               Description
               <button class="back">Back</button>
-          </header>
+          </h1>
           <body>insert description here</body>
           <footer>
               <button class="moreInfo">All Info</button>
