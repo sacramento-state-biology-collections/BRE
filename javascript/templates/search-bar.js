@@ -1,4 +1,5 @@
 Vue.component("search-bar", {
+  /*html*/
   template: `
     <div id="search-header">
         <header>
@@ -13,7 +14,7 @@ Vue.component("search-bar", {
             </div>
         </header>
     </div>     
-    `,
+  `,
   data: function () {
     return {
       title: "My Collection",

@@ -6,6 +6,7 @@ class TwoEntries {
 }
 
 Vue.component("preview-data-view", {
+  /*html*/
   template: `
   <div id="preview-data-view">
         <div id="left">
