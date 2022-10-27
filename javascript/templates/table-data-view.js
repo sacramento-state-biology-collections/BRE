@@ -9,7 +9,7 @@ class Entry {
 
 Vue.component("table-data-view", {
   template: `
-    <div>
+    <div id="table-data-view">
         <table>
             <tr>
                 <th>{{Headers.Col_1}}</th>
