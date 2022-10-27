@@ -17,6 +17,7 @@ Vue.component("search-bar", {
       searchText: "",
       collection: "",
       placeholder: "Search All",
+      isVisible: true,
     };
   },
   methods: {
