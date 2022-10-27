@@ -22,16 +22,46 @@ header {
     font-size: 1em;
     color: #ffffff;
     text-align: center;
-
 }
 
 #search-cluster
 {
     margin-bottom: 20px;
+    height: 20px;
+    align-items: center;
 }
 
 
+button {
+    height: inherit;
+    align-items: center;
+    width:20px;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
 
+img{
+    height: 20px;
+    width: 20px;
+    align-items: center;
+    position: center;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
 input {
     align-items: center;
+    height: inherit;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+select{
+    align-items: center;
+    height: inherit;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
 }
