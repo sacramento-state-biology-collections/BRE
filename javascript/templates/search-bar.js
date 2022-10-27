@@ -9,7 +9,7 @@ Vue.component("search-bar", {
                 <select name="Collections" id="Collections" v-on:change="update">
                     <option v-for="option in options" v-bind:value="option">{{option}}</option>
                 </select>
-                <button class="search" v-on:click="search"><img id="search-button-img" src="./styles/stylephotos/Search_Button.svg" alt="Home"></button>
+                <button class="search" v-on:click="search"><img id="search-button-img" src="./styles/stylephotos/Search_Button.svg" alt="Search"></button>
             </div>
         </header>
     </div>     
