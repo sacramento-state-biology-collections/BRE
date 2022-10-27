@@ -1,5 +1,7 @@
 Vue.component("search-bar", {
-  template: `
+  template: 
+    `
+    <div id="search-header">
     <header>
         <h1>{{title}}</h1>
         <button class="home">home</button>
@@ -8,7 +10,8 @@ Vue.component("search-bar", {
             <option v-for="option in options" v-bind:value="option">{{option}}</option>
         </select>
         <button class="search" v-on:click="search">search</button>
-    </header>     
+    </header>
+    </div>     
     `,
   data: function () {
     return {
