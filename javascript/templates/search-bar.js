@@ -4,12 +4,12 @@ Vue.component("search-bar", {
         <header>
             <h1>{{title}}</h1>
             <div id="search-cluster">
-                <button class="home">home</button>
+                <button class="home" v-on:click="home"><img id="home-button-img" src="./styles/stylephotos/Home_Button.svg" alt="Home"></button>
                 <input type="text" v-model="searchText" v-bind:placeholder="placeholder"/>
                 <select name="Collections" id="Collections" v-on:change="update">
                     <option v-for="option in options" v-bind:value="option">{{option}}</option>
                 </select>
-                <button class="search" v-on:click="search">search</button>
+                <button class="search" v-on:click="search"><img id="search-button-img" src="./styles/stylephotos/Search_Button.svg" alt="Home"></button>
             </div>
         </header>
     </div>     
