@@ -9,7 +9,7 @@ Vue.component("preview-data-view", {
   template: `
   <div id="preview-data-view">
       <div id="left">
-          <img src="./stylephotos/Home_Button.png"></img>
+          <img src="./stylephotos/Search_Button.svg"></img>
           <body>Name: animal</body>
       </div>
       <div id="right">
