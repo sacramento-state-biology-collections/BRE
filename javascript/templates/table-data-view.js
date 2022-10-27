@@ -9,24 +9,24 @@ class Entry {
 
 Vue.component("table-data-view", {
   template: `
-  <div>
-  <table>
-      <tr>
-          <th>{{Headers.Col_1}}</th>
-          <th>{{Headers.Col_2}}</th>
-          <th>{{Headers.Col_3}}</th>
-          <th>{{Headers.Col_4}}</th>
-          <th>Preview Buttons</th> 
-      </tr>
-      <tr v-model="Rows" v-for="entry in Rows">
-          <td>{{entry.Col_1}}</td>
-          <td>{{entry.Col_2}}</td>
-          <td>{{entry.Col_3}}</td>
-          <td>{{entry.Col_4}}</td>
-          <td><button class="preview" v-on:click="loadView">Preview</button></td>
-      </tr>
-  </table>
-</div>
+    <div>
+        <table>
+            <tr>
+                <th>{{Headers.Col_1}}</th>
+                <th>{{Headers.Col_2}}</th>
+                <th>{{Headers.Col_3}}</th>
+                <th>{{Headers.Col_4}}</th>
+                <th>Preview Buttons</th> 
+            </tr>
+            <tr v-model="Rows" v-for="entry in Rows">
+                <td>{{entry.Col_1}}</td>
+                <td>{{entry.Col_2}}</td>
+                <td>{{entry.Col_3}}</td>
+                <td>{{entry.Col_4}}</td>
+                <td><button class="preview" v-on:click="loadView">Preview</button></td>
+            </tr>
+        </table>
+    </div>
   `,
   data: function () {
     return {
@@ -37,7 +37,12 @@ Vue.component("table-data-view", {
         new Entry("Row 3 Col 1", "Row 3 Col 2", "Row 3 Col 3", "Row 3 Col 4"),
         new Entry("Row 4 Col 1", "Row 4 Col 2", "Row 4 Col 3", "Row 4 Col 4"),
       ],
+      isVisable: false,
     };
   },
-  methods: {},
+  methods: {
+    loadView: function () {
+      console.log("loading preview");
+    },
+  },
 });
