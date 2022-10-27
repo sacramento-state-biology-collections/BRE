@@ -24,7 +24,7 @@ Vue.component("table-data-view", {
           <td>{{entry.Col_2}}</td>
           <td>{{entry.Col_3}}</td>
           <td>{{entry.Col_4}}</td>
-          <td><button class="preview" v-on:click="loadView">Preview</button></td>
+          <td><button class="preview" v-on:click="nextView">Preview</button></td>
         </tr>
       </table>
     </div>
@@ -62,7 +62,7 @@ Vue.component("table-data-view", {
     };
   },
   methods: {
-    loadView: function () {
+    nextView: function () {
       console.log("loading preview");
     },
   },

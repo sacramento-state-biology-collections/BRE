@@ -10,7 +10,7 @@ Vue.component("preview-data-view", {
   template: `
     <div id="preview-data-view">
       <div id="top">
-        <button class="back">Back</button>
+        <button class="back" v-on:click="prevView">Back</button>
       </div>
       <div id="left">
         <img v-bind:src="animalPhoto" alt="photo">
@@ -21,7 +21,7 @@ Vue.component("preview-data-view", {
         <p v-for="(value, name, index) in description"><b>{{name}}:</b> {{value}}</p>
       </div>
       <div id="bottom">
-        <button class="moreInfo">All Info</button>
+        <button class="moreInfo" v-on:click="nextView">All Info</button>
       </div>
     </div>
   `,
@@ -36,5 +36,12 @@ Vue.component("preview-data-view", {
       isVisible: false,
     };
   },
-  methods: {},
+  methods: {
+    nextView: function () {
+      console.log("loading view");
+    },
+    prevView: function () {
+      console.log("loading view");
+    },
+  },
 });
