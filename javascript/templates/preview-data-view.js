@@ -8,21 +8,21 @@ class TwoEntries {
 Vue.component("preview-data-view", {
   template: `
   <div id="preview-data-view">
-      <div id="left">
-          <img src="./stylephotos/Search_Button.svg"></img>
-          <body>Name: animal</body>
-      </div>
-      <div id="right">
-          <h1>
-              Description
-              <button class="back">Back</button>
-          </h1>
-          <body>insert description here</body>
-          <footer>
-              <button class="moreInfo">All Info</button>
-          </footer>
-      </div>
-  </div>
+        <div id="left">
+            <img src={{animalPhoto}}></img>
+            <p>Name: {{animalName}}</p>
+        </div>
+        <div id="right">
+            <h1 id="description">
+                Description
+                <button class="back">Back</button>
+            </h1>
+            <p>{{description}}</p>
+            <p>
+                <button class="moreInfo">All Info</button>
+            </p>
+        </div>
+    </div>
   `,
   data: function () {
     return {
