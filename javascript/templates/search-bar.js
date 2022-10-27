@@ -2,8 +2,8 @@ Vue.component("search-bar", {
   template: `
     <div id="search-header">
         <header>
+            <h1>{{title}}</h1>
             <div id="search-cluster">
-                <h1>{{title}}</h1>
                 <button class="home">home</button>
                 <input type="text" v-model="searchText" v-bind:placeholder="placeholder"/>
                 <select name="Collections" id="Collections" v-on:change="update">
