@@ -80,3 +80,14 @@ img{
     border: 0px;
     padding: 0px;
 }
+
+#start-view {
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    grid-auto-flow: row dense;
+}
+
+#start-view > button {
+    margin: 5px;
+    padding: 10px;
+}
