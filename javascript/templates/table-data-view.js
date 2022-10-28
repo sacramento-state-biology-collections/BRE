@@ -66,4 +66,10 @@ Vue.component("table-data-view", {
       console.log("loading preview");
     },
   },
+  mounted: function () {
+    this.$root.$on("next-table-view", (item) => {
+      console.log("next-table-view: " + item);
+      this.isVisible = true;
+    });
+  },
 });
