@@ -3,7 +3,7 @@ Vue.component("start-view", {
   template: `
     <div id="start-view" v-show="isVisible">
       <div id="button-container" v-for="(value, key, index) in collections">
-        <button start-button @click="loadContent(key)">{{key}}</button>
+        <button id="start-button" @click="loadContent(key)">{{key}}</button>
         <div id="button-subContainer" v-show="isContentVisible[key]">
           <button id="start-button" v-for="item in value" @click="nextView(item)">{{item}}</button>
         </div>
