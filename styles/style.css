@@ -85,6 +85,7 @@ img{
     display: grid;
     grid-template-columns: repeat(3,auto);
     grid-auto-flow: row dense;
+    margin: 5%;
 }
 
 #start-view > button {
