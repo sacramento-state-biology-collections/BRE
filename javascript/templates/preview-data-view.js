@@ -8,7 +8,7 @@ class TwoEntries {
 Vue.component("preview-data-view", {
   /*html*/
   template: `
-    <div id="preview-data-view">
+    <div id="preview-data-view" v-show="isVisible">
       <div id="top">
         <button class="back" v-on:click="prevView">Back</button>
       </div>

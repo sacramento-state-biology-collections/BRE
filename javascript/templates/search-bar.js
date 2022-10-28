@@ -1,7 +1,7 @@
 Vue.component("search-bar", {
   /*html*/
   template: `
-    <div id="search-header">
+    <div id="search-header" v-show="isVisible">
         <header>
             <h1>{{title}}</h1>
             <div id="search-cluster">

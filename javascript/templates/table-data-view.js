@@ -10,7 +10,7 @@ class FourEntries {
 Vue.component("table-data-view", {
   /*html*/
   template: `
-    <div id="table-data-view">
+    <div id="table-data-view" v-show="isVisible">
       <table>
         <tr>
           <th>{{Headers.Col_1}}</th>
@@ -58,7 +58,7 @@ Vue.component("table-data-view", {
           "Row 4 Col 4"
         ),
       ],
-      isVisable: false,
+      isVisible: false,
     };
   },
   methods: {
