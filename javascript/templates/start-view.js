@@ -2,12 +2,11 @@ Vue.component("start-view", {
   /*html*/
   template: `
     <div id="start-view" v-show="isVisible">
-      <div id="button-container" v-for="(value, key, index) in collections">
-        <button id="start-button" @click="loadContent(key)">{{key}}</button>
+      <button id="start-button" v-for="(value, key, index) in collections" @click="loadContent(key)">{{key}}
         <div id="button-subContainer" v-show="isContentVisible[key]">
-          <button id="start-button" v-for="item in value" @click="nextView(item)">{{item}}</button>
+          <button v-for="item in value" @click="nextView(item)">{{item}}</button>
         </div>
-      </div>
+      </button>
     </div>
   `,
   data: function () {
