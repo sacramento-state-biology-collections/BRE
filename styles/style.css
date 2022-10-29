@@ -4,22 +4,15 @@ body{
 }
 
 #search-header{
-    width: 100%;
-    height: 100%;
-    padding: 0px;
-    margin: 0px;
-    overflow-x: hidden;
+    width: 100vw;
+    height: 45vh;
     overflow-y: hidden;
-    box-sizing:content-box;
-    position: center;
-    background-size: cover;
     background-color: rgb(0, 78, 56); 
 }
 
 header {
-    margin-top: 50px;
+    margin-top: 14vh;
     font-family:arial,sans-serif;
-    font-weight:100;
     font-size: 1em;
     color: #ffffff;
     text-align: center;
@@ -27,26 +20,26 @@ header {
 
 #search-cluster
 {
-    margin-bottom: 50px;
+    height: 10vh;
+    margin: 0px;
     border: 0px;
-    padding: 0px;
-    height: 30px;
+    padding:0px;
     align-items: center;
+    position: relative;
 }
 
 
 #search-cluster > button {
     height: inherit;
-    align-items: center;
-    padding-right: 100%;
     vertical-align: middle;
     margin: 0px;
-    margin-left: -5px;
-    margin-right: 5px;
     border: 0px;
     padding: 0px;
 }
 
+#search-cluster > button.search {
+    margin-left: -0.5vw;
+}
 #search-cluster > button:active{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     transform: translateY(4px);
@@ -61,12 +54,16 @@ img{
     border: 0px;
     padding-top: 0px;
 }
+
 #search-cluster > input {
     align-items: center;
     height: inherit;
+    width: 60vw;
     vertical-align: middle;
+    font-size: 4vh;
+    margin-right: -0.5vw;
+    margin-left: 1vw;
     width:60%;
-    margin-right: -5px;
     border: 0px;
     padding: 0px;
 }
@@ -74,11 +71,17 @@ img{
 #search-cluster > select{
     align-items: center;
     height: inherit;
+    width: 12.5vw;
     background-color: #58B947;
     vertical-align: middle;
     margin: 0px;
     border: 0px;
     padding: 0px;
+    font-size: 4vh;
+}
+
+input[type='text'] {
+    padding-left: 25px;
 }
 
 #start-view {
@@ -90,7 +93,9 @@ img{
 
 #start-view > button {
     width:inherit;
-    aspect-ratio: 10/1;
-    margin: 1.5%;
-    padding: 10px;
+    height: 8vh;
+    margin: 1vh;
+    background-color: #ffffff;
+    border-radius: 20px;
+    font-size: 3vh;
 }
