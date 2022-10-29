@@ -1,101 +1,95 @@
-body{
-  border: 0px;
-  margin: 0px;
+/* Define body global parameters */
+body {
+    border: 0px; /* Remove border */
+    margin: 0px; /* Remove margin */
+    height: 100vh; /* Set height to 100% of the viewport */
+    width: 100vw; /* Set width to 100% of the viewport */
 }
 
-#search-header{
-    width: 100vw;
-    height: 45vh;
-    overflow-y: hidden;
-    background-color: rgb(0, 78, 56); 
-}
-
-header {
-    margin-top: 14vh;
-    font-family:arial,sans-serif;
-    font-size: 1em;
-    color: #ffffff;
-    text-align: center;
-}
-
-#search-cluster
-{
-    height: 10vh;
-    margin: 0px;
-    border: 0px;
-    padding:0px;
-    align-items: center;
-    position: relative;
-}
-
-
-#search-cluster > button {
-    height: inherit;
-    vertical-align: middle;
-    margin: 0px;
-    border: 0px;
-    padding: 0px;
-}
-
-#search-cluster > button.search {
-    margin-left: -0.5vw;
-}
-#search-cluster > button:active{
+/* Set button animation global parameters */
+button:active{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     transform: translateY(4px);
 }
 
-img{
-    height: inherit;
-    width: inherit;
-    align-items: center;
-    position:relative;
-    margin: 0px;
-    border: 0px;
-    padding-top: 0px;
+/* Set div with the id of search-header height and width */
+#search-header {
+    width: 100vw; /* Set width to 100% of the viewport */
+    height: 25vh; /* Set height to 25% of the viewport */
+    overflow-y: hidden; /* Hide overflow */
+    background-color: rgb(0, 78, 56); /* Set background color */
 }
 
+/* Center all tags in search header in the 25vh */
+#search-header > * {
+    position: absolute; /* Set position to absolute */
+    top: 10%; /* Set top to 10% of the viewport */
+    left: 50%; /* Set left to 50% of the viewport */
+    transform: translate(-50%, -50%); /* Set transform to translate */
+}
+
+/* Center all elements in header tag; setting font & color */
+header {
+    text-align: center; /* Center text */
+    font-family:arial,sans-serif; /* Set font to Arial */
+    color: #ffffff;
+}
+
+/* line up search-cluster in a row */
+#search-cluster{
+    display: flex; /* Set display to flex */
+    flex-direction: row; /* Set flex direction to row */
+}
+
+/* Set button style to buttons in the search-cluster */
+#search-cluster > button {
+    margin: 0px; /* Remove margin */
+    border: 0px; /* Remove border */
+    padding: 0px; /* Remove padding */
+    height: 5vh; /* Set height to 5% of the viewport */
+    vertical-align: middle; /* Set vertical alignment to middle */
+}
+
+/* Set img tag in the button to inherit the height of the button */
+#search-cluster > button > img {
+    height: inherit; /* Set height to inherit */
+}
+
+/* Set search-cluster input tag style */
 #search-cluster > input {
-    align-items: center;
-    height: inherit;
-    width: 60vw;
-    vertical-align: middle;
-    font-size: 4vh;
-    margin-right: -0.5vw;
-    margin-left: 1vw;
-    width:60%;
-    border: 0px;
-    padding: 0px;
+    border: 0px; /* Remove border */
+    padding: 0px; /* Remove padding */
+    margin: 0px 5px 0px 5px; /* Set margin */
+    height: 5vh; /* Set height to 5% of the viewport */
+    width: 60vw; /* Set width to 60% of the viewport */
+    font-size: 1.5em; /* Set font size */
+    padding-left: 5px;
 }
 
+/* Set search-cluster select tag style */
 #search-cluster > select{
-    align-items: center;
-    height: inherit;
-    width: 12.5vw;
-    background-color: #58B947;
-    vertical-align: middle;
-    margin: 0px;
-    border: 0px;
-    padding: 0px;
-    font-size: 4vh;
+    border: 0px; /* Remove border */
+    padding: 0px; /* Remove padding */
+    margin: 0px; /* Remove margin */
+    font-size: 1.5em; /* Set font size */
+    background-color: #58B947; /* Set background color */
+    vertical-align: middle; /* Set vertical alignment to middle */
 }
 
-input[type='text'] {
-    padding-left: 25px;
-}
-
+/* Set search-cluster formatting */
 #start-view {
-    display: grid;
-    grid-template-columns: repeat(2,auto);
-    grid-auto-flow: row dense;
-    margin: 5%;
+    display: grid; /* Set display to grid */
+    grid-template-columns: repeat(2, auto); /* Set grid template columns to repeat 2 times */
+    grid-auto-flow: row dense; /* Set grid auto flow to row dense */
+    margin: 5%; /* Set margin */
 }
 
+/* Set search-cluster button tag style */
 #start-view > button {
-    width:inherit;
-    height: 8vh;
-    margin: 1vh;
-    background-color: #ffffff;
-    border-radius: 20px;
-    font-size: 3vh;
+    width: inherit; /* Set width to inherit */
+    height: 8vh; /* Set height to 8% of the viewport */
+    margin: 1vh; /* Set margin */
+    background-color: #ffffff; /* Set background color */
+    border-radius: 20px; /* Set border radius */
+    font-size: 3vh; /* Set font size */
 }
