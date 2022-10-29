@@ -83,12 +83,14 @@ img{
 
 #start-view {
     display: grid;
-    grid-template-columns: repeat(3,auto);
+    grid-template-columns: repeat(2,auto);
     grid-auto-flow: row dense;
     margin: 5%;
 }
 
 #start-view > button {
-    margin: 5px;
+    width:inherit;
+    aspect-ratio: 10/1;
+    margin: 1.5%;
     padding: 10px;
 }
