@@ -83,18 +83,37 @@ header {
 
 /* Set search-cluster formatting */
 #start-view {
+    margin: 5%; /* Set margin */
     display: grid; /* Set display to grid */
     grid-template-columns: repeat(2, auto); /* Set grid template columns to repeat 2 times */
     grid-auto-flow: row dense; /* Set grid auto flow to row dense */
-    margin: 5%; /* Set margin */
 }
 
-/* Set search-cluster button tag style */
-#start-view > button {
+/* Set start-view button tag style with id start-button */
+#start-view > button#start-button {
     width: inherit; /* Set width to inherit */
     height: 8vh; /* Set height to 8% of the viewport */
     margin: 1vh; /* Set margin */
     background-color: #ffffff; /* Set background color */
     border-radius: 20px; /* Set border radius */
     font-size: 3vh; /* Set font size */
+}
+
+/* Set start-view-sub-container tag layout */
+#start-view-sub-container {
+    position: relative; /* Set position to absolute */
+    display: grid; /* Set display to grid */
+    
+}
+
+#start-view-sub-container > button {
+    width: 35%; /* Set width to 100% */
+    height: 4vh; /* Set height to 8% of the viewport */
+    margin-bottom: 10px; /* Set margin top */
+    position: relative; /* Set position to relative */
+    left: 50%; /* Set left to 50% of the viewport */
+    transform: translate(-50%, 0); /* Set transform to translate */
+    background-color: #ffffff; /* Set background color */
+    border-radius: 20px; /* Set border radius */
+    font-size: 2vh; /* Set font size */
 }

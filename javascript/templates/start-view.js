@@ -2,9 +2,10 @@ Vue.component("start-view", {
   /*html*/
   template: `
     <div id="start-view" v-show="isVisible">
-      <button id="start-button" v-for="(value, key, index) in collections" @click="loadContent(key)">{{key}}
-        <div id="button-subContainer" v-show="isContentVisible[key]">
-          <button v-for="item in value" @click="nextView(item, key)">{{item}}</button>
+      <button id="start-button" v-for="(value, key, index) in collections" @click="loadContent(key)">
+        {{key}}
+        <div id="start-view-sub-container">
+          <button id="sub-start-button" v-for="item in value" v-show="isContentVisible[key]" @click="nextView(item, key)">{{item}}</button>
         </div>
       </button>
     </div>
@@ -12,7 +13,7 @@ Vue.component("start-view", {
   data: function () {
     return {
       collections: {
-        Animals: ["Amphibians", "Arthropods", "Mammals", "Reptiles"],
+        Animals: ["Amphibians", "Arthropods", "Mammals", "Reptiles", "Birds", "Fish"],
         Birds: ["Birds"],
         Fish: ["Fish"],
         Invertebrates: ["Invertebrates"],
@@ -35,6 +36,11 @@ Vue.component("start-view", {
   methods: {
     loadContent: function (collection) {
       this.isContentVisible[collection] = !this.isContentVisible[collection];
+      for (const [key, value] of Object.entries(this.isContentVisible)) {
+        if (key != collection) {
+          this.isContentVisible[key] = false;
+        }
+      }
     },
     nextView: function (item, key) {
       console.log("loading view");
