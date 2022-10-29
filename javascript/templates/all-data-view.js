@@ -5,6 +5,7 @@ Vue.component("all-data-view", {
         <img v-bind:src="animalPhoto" alt="photo">
         <p>Name: {{animalName}}</p>
         <p v-for="(value, name, index) in description"><b>{{name}}:</b> {{value}}</p>
+        <button class="back" v-on:click="prevView">Back</button> 
     </div>
   `,
   data: function () {
@@ -19,11 +20,20 @@ Vue.component("all-data-view", {
     };
   },
   methods: {
-    nextView: function () {
-      console.log("loading view");
-    },
     prevView: function () {
       console.log("loading view");
+      this.$root.$emit("search-bar", {
+        isVisible: true,
+      })
+      this.$root.$emit("table-data-view", {
+        isVisible: true,
+      })
+      this.isVisible = false;
     },
+  },
+  mounted: function () {
+    this.$root.$on("all-data-view", (data) => {
+      this.isVisible = data.isVisible;
+    });
   },
 });

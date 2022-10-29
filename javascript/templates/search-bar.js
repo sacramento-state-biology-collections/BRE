@@ -52,4 +52,9 @@ Vue.component("search-bar", {
       });
     },
   },
+  mounted: function () {
+    this.$root.$on("search-bar", (data) => {
+      this.isVisible = data.isVisible;
+    });
+  },
 });
