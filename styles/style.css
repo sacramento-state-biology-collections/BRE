@@ -107,7 +107,7 @@ header {
 }
 
 #start-view-sub-container > button {
-    width: 35%; /* Set width to 100% */
+    width: 40%; /* Set width to 100% */
     height: 4vh; /* Set height to 8% of the viewport */
     margin-bottom: 10px; /* Set margin top */
     position: relative; /* Set position to relative */
