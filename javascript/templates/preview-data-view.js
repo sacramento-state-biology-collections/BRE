@@ -18,7 +18,7 @@ Vue.component("preview-data-view", {
       </div>
       <div id="center">
         <h1 id="data">Description</h1>
-        <p v-for="(value, name, index) in description"><b>{{name}}:</b> {{value}}</p>
+        <p v-for="(value, name, index) in data"><b>{{name}}:</b> {{value}}</p>
       </div>
       <div id="bottom">
         <button class="moreInfo" v-on:click="nextView">All Info</button>
