@@ -20,6 +20,11 @@ button:active{
     background-color: rgb(0, 78, 56); /* Set background color */
 }
 
+/* Set search-header h1 tag size */
+#search-header h1 {
+    font-size: 2.5em; /* Set font size */
+}
+
 /* Center all tags in search header in the 25vh */
 #search-header > * {
     position: absolute; /* Set position to absolute */
