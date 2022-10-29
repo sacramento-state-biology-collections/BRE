@@ -4,7 +4,7 @@ Vue.component("start-view", {
     <div id="start-view" v-show="isVisible">
       <button id="start-button" v-for="(value, key, index) in collections" @click="loadContent(key)">{{key}}
         <div id="button-subContainer" v-show="isContentVisible[key]">
-          <button v-for="item in value" @click="nextView(item)">{{item}}</button>
+          <button v-for="item in value" @click="nextView(item, key)">{{item}}</button>
         </div>
       </button>
     </div>
@@ -34,13 +34,20 @@ Vue.component("start-view", {
   },
   methods: {
     loadContent: function (collection) {
-      console.log("loading " + collection);
       this.isContentVisible[collection] = !this.isContentVisible[collection];
     },
-    nextView: function (item) {
+    nextView: function (item, key) {
       console.log("loading view");
-      this.$root.$emit("next-table-view", item);
       this.isVisible = false;
+      this.$root.$emit("load-search", {
+        collection: key,
+        search: item,
+      });
     },
+  },
+  mounted: function () {
+    this.$root.$on("start-view", (data) => {
+      this.isVisible = data.isVisible;
+    });
   },
 });

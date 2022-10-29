@@ -32,32 +32,7 @@ Vue.component("table-data-view", {
   data: function () {
     return {
       Headers: new FourEntries("Header 1", "Header 2", "Header 3", "Header 4"),
-      Rows: [
-        new FourEntries(
-          "Row 1 Col 1",
-          "Row 1 Col 2",
-          "Row 1 Col 3",
-          "Row 1 Col 4"
-        ),
-        new FourEntries(
-          "Row 2 Col 1",
-          "Row 2 Col 2",
-          "Row 2 Col 3",
-          "Row 2 Col 4"
-        ),
-        new FourEntries(
-          "Row 3 Col 1",
-          "Row 3 Col 2",
-          "Row 3 Col 3",
-          "Row 3 Col 4"
-        ),
-        new FourEntries(
-          "Row 4 Col 1",
-          "Row 4 Col 2",
-          "Row 4 Col 3",
-          "Row 4 Col 4"
-        ),
-      ],
+      Rows: [],
       isVisible: false,
     };
   },
@@ -67,8 +42,19 @@ Vue.component("table-data-view", {
     },
   },
   mounted: function () {
-    this.$root.$on("next-table-view", (item) => {
-      console.log("next-table-view: " + item);
+    this.$root.$on("table-data-view", (data) => {
+      this.isVisible = data.isVisible;
+    });
+    this.$root.$on("load-search", (item) => {
+      console.log(`table view of ${item.search} in ${item.collection}`);
+      this.Rows = [
+        new FourEntries(
+          "Row 1 Col 1",
+          "Row 1 Col 2",
+          "Row 1 Col 3",
+          "Row 1 Col 4"
+        ),
+      ];
       this.isVisible = true;
     });
   },

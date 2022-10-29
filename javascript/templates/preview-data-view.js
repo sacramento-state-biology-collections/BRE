@@ -44,4 +44,9 @@ Vue.component("preview-data-view", {
       console.log("loading view");
     },
   },
+  mounted: function () {
+    this.$root.$on("preview-data-view", (data) => {
+      this.isVisible = data.isVisible;
+    });
+  },
 });

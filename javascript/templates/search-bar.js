@@ -10,7 +10,7 @@ Vue.component("search-bar", {
                 <select title="Collections" name="Collections" id="Collections" v-on:change="update">
                     <option v-for="option in options" v-bind:value="option">{{option}}</option>
                 </select>
-                <button class="search" v-on:click="search"><img id="search-button-img" src="./styles/stylephotos/Search_Button.svg" alt="Search"></button>
+                <button class="search" v-on:click="nextView"><img id="search-button-img" src="./styles/stylephotos/Search_Button.svg" alt="Search"></button>
             </div>
         </header>
     </div>     
@@ -20,7 +20,7 @@ Vue.component("search-bar", {
       title: "My Collection",
       options: ["All", "Mammals", "Birds", "Reptiles", "Amphibians", "Fish"],
       searchText: "",
-      collection: "",
+      collection: "All",
       placeholder: "Search All",
       isVisible: true,
     };
@@ -30,13 +30,26 @@ Vue.component("search-bar", {
       this.collection = event.target.value;
       this.placeholder = "Search " + event.target.value;
     },
-    search: function () {
-      console.log(
-        "searching for " + this.searchText + " in " + this.collection
-      );
-    },
     loadHome: function () {
-      console.log("loading home");
+      this.$root.$emit("start-view", {
+        isVisible: true,
+      });
+      this.$root.$emit("table-data-view", {
+        isVisible: false,
+      });
+      this.$root.$emit("preview-data-view", {
+        isVisible: false,
+      });
+    },
+    nextView: function () {
+      console.log("loading view");
+      this.$root.$emit("load-search", {
+        search: this.searchText,
+        collection: this.collection,
+      });
+      this.$root.$emit("start-view", {
+        isVisible: false,
+      });
     },
   },
 });
