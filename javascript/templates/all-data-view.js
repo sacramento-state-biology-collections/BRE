@@ -2,10 +2,16 @@ Vue.component("all-data-view", {
   /*html*/
   template: `
     <div id="all-data-view" v-show="isVisible">
-        <img v-bind:src="animalPhoto" alt="photo">
+      <div id="left">
+        <button class="back" v-on:click="prevView">Back</button>
+      </div>
+      <div id="center">
         <p>Name: {{animalName}}</p>
         <p v-for="(value, name, index) in data"><b>{{name}}:</b> {{value}}</p>
-        <button class="back" v-on:click="prevView">Back</button> 
+      </div>
+      <div id="right">
+        <img v-bind:src="animalPhoto" alt="photo">   
+      </div>   
     </div>
   `,
   data: function () {

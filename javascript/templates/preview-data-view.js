@@ -9,14 +9,14 @@ Vue.component("preview-data-view", {
   /*html*/
   template: `
     <div id="preview-data-view" v-show="isVisible">
-      <div id="top">
+      <div id="right">
         <button class="back" v-on:click="prevView">Back</button>
       </div>
       <div id="left">
         <img v-bind:src="animalPhoto" alt="photo">
         <p>Name: {{animalName}}</p>
       </div>
-      <div id="right">
+      <div id="center">
         <h1 id="data">Description</h1>
         <p v-for="(value, name, index) in description"><b>{{name}}:</b> {{value}}</p>
       </div>
