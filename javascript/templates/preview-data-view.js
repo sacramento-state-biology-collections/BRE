@@ -17,7 +17,7 @@ Vue.component("preview-data-view", {
         <p>Name: {{animalName}}</p>
       </div>
       <div id="right">
-        <h1 id="description">Description</h1>
+        <h1 id="data">Description</h1>
         <p v-for="(value, name, index) in description"><b>{{name}}:</b> {{value}}</p>
       </div>
       <div id="bottom">
@@ -29,7 +29,7 @@ Vue.component("preview-data-view", {
     return {
       animalPhoto: "./styles/stylephotos/no_image_image.svg",
       animalName: "Animal Name",
-      description: {
+      data: {
         "Scientific Name": "Scientific Name",
         "Common Name": "Common Name",
       },
