@@ -81,16 +81,22 @@ header {
     vertical-align: middle; /* Set vertical alignment to middle */
 }
 
-/* Set search-cluster formatting */
-#start-view {
-    margin: 5%; /* Set margin */
+/* Move h2 text to center of container */
+#start-view > h2 {
+    text-align: center; /* Center text */
+    margin-top: 10vh; /* Set margin top */
+}
+
+/* Set formatting */
+#start-view-container {
+    margin: 0px 5% 5% 5%; /* Set margin */
     display: grid; /* Set display to grid */
     grid-template-columns: repeat(2, auto); /* Set grid template columns to repeat 2 times */
     grid-auto-flow: row dense; /* Set grid auto flow to row dense */
 }
 
-/* Set start-view button tag style with id start-button */
-#start-view > button#start-button {
+/* Set start-view-container button tag style with id start-button */
+#start-view-container > button#start-button {
     width: inherit; /* Set width to inherit */
     height: 8vh; /* Set height to 8% of the viewport */
     margin: 1vh; /* Set margin */
@@ -99,7 +105,7 @@ header {
     font-size: 3vh; /* Set font size */
 }
 
-/* Set start-view-sub-container tag layout */
+/* Set start-view-container-sub-container tag layout */
 #start-view-sub-container {
     position: relative; /* Set position to absolute */
     display: grid; /* Set display to grid */
