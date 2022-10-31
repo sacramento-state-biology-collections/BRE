@@ -1,3 +1,6 @@
+//Authors: Brian A. and Joey M.
+//For subtasks: GG=47
+
 Vue.component("all-data-view", {
   /*html*/
   template: `

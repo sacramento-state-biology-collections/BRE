@@ -1,3 +1,6 @@
+//Authors: Brian A. and Joey M.
+//Subtasks: GG-47
+
 class TwoEntries {
   constructor(Col_1, Col_2) {
     this.Col_1 = Col_1;

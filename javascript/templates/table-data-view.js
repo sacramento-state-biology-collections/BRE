@@ -1,3 +1,6 @@
+//Authors: Brian A. and Joey M.
+//Subtasks: GG-47
+
 class FourEntries {
   constructor(Col_1, Col_2, Col_3, Col_4) {
     this.Col_1 = Col_1;
