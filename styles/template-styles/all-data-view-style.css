@@ -1,3 +1,6 @@
+/*Authors: Kelly B. Leo A. Brian A.
+Subtask: GG-48 */
+
 /* move button in left div to top left of page */
 #left > button {
     position: absolute; /* Set position to absolute */
