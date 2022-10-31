@@ -1,0 +1,29 @@
+#table-data-view {
+    height: 71vh; /* 71% of the viewport height */
+    margin: 20px; /* 20px margin on all sides */
+    overflow: auto; /* Enable scrollbars */
+}
+
+table {
+    border-collapse: collapse; /* Collapse borders */
+    width: 100%; /* Full-width */
+}
+
+table, th, td {
+    border: 1px solid; /* Add borders */
+    text-align: center; /* Center text */
+}
+
+td:last-child {
+    width: 1%; /* Make the last column as small as possible */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+td button {
+    background-color: rgb(0, 78, 56); /* Set background color */
+    width: 5em; /* Set width */
+    height: 2em; /* Set height */
+    margin: 5px; /* 5px margin on all sides */
+    border: none; /* Remove border */
+    color: white; /* Set text color to white */
+}
