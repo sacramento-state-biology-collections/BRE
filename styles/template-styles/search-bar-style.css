@@ -1,0 +1,68 @@
+/* Set div with the id of search-header height and width */
+#search-header {
+    width: 100vw; /* Set width to 100% of the viewport */
+    height: 25vh; /* Set height to 25% of the viewport */
+    overflow-y: hidden; /* Hide overflow */
+    background-color: rgb(0, 78, 56); /* Set background color */
+}
+
+/* Set search-header h1 tag size */
+#search-header h1 {
+    font-size: 2.5em; /* Set font size */
+}
+
+/* Center all tags in search header in the 25vh */
+#search-header > * {
+    position: absolute; /* Set position to absolute */
+    top: 10%; /* Set top to 10% of the viewport */
+    left: 50%; /* Set left to 50% of the viewport */
+    transform: translate(-50%, -50%); /* Set transform to translate */
+}
+
+/* Center all elements in header tag; setting font & color */
+header {
+    text-align: center; /* Center text */
+    font-family:arial,sans-serif; /* Set font to Arial */
+    color: #ffffff;
+}
+
+/* line up search-cluster in a row */
+#search-cluster{
+    display: flex; /* Set display to flex */
+    flex-direction: row; /* Set flex direction to row */
+}
+
+/* Set button style to buttons in the search-cluster */
+#search-cluster > button {
+    margin: 0px; /* Remove margin */
+    border: 0px; /* Remove border */
+    padding: 0px; /* Remove padding */
+    height: 5vh; /* Set height to 5% of the viewport */
+    vertical-align: middle; /* Set vertical alignment to middle */
+}
+
+/* Set img tag in the button to inherit the height of the button */
+#search-cluster > button > img {
+    height: inherit; /* Set height to inherit */
+}
+
+/* Set search-cluster input tag style */
+#search-cluster > input {
+    border: 0px; /* Remove border */
+    padding: 0px; /* Remove padding */
+    margin: 0px 5px 0px 5px; /* Set margin */
+    height: 5vh; /* Set height to 5% of the viewport */
+    width: 60vw; /* Set width to 60% of the viewport */
+    font-size: 1.5em; /* Set font size */
+    padding-left: 5px;
+}
+
+/* Set search-cluster select tag style */
+#search-cluster > select{
+    border: 0px; /* Remove border */
+    padding: 0px; /* Remove padding */
+    margin: 0px; /* Remove margin */
+    font-size: 1.5em; /* Set font size */
+    background-color: #58B947; /* Set background color */
+    vertical-align: middle; /* Set vertical alignment to middle */
+}
