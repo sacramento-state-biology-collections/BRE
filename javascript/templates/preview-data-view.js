@@ -1,5 +1,5 @@
 //Authors: Brian A. and Joey M.
-//Subtasks: GG-47
+//Subtasks: GG-47, GG-49
 
 class TwoEntries {
   constructor(Col_1, Col_2) {
