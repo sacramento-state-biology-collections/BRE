@@ -1,5 +1,10 @@
 function getEntries() {
-    let data = Papa.parse("./data/mammals-collection.csv", {
+    Papa.parse("./data/mammals-collection.csv", {
         header: true,
+        download: true,
+        dynamicTyping: true,
+        complete: function(results) {
+          data = results.data;
+        }
     });
 }
