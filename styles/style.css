@@ -1,0 +1,20 @@
+/* import all css files in template-styles */
+@import url("./template-styles/search-bar-style.css");
+@import url("./template-styles/start-view-style.css");
+@import url("./template-styles/table-view-style.css");
+@import url("./template-styles/preview-data-view-style.css");
+@import url("./template-styles/all-data-view-style.css");
+
+/* Define body global parameters */
+body {
+    border: 0px; /* Remove border */
+    margin: 0px; /* Remove margin */
+    height: 100vh; /* Set height to 100% of the viewport */
+    width: 100vw; /* Set width to 100% of the viewport */
+}
+
+/* Set button animation global parameters */
+button:active{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transform: translateY(4px);
+}
