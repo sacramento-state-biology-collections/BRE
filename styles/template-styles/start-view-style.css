@@ -1,3 +1,8 @@
+/* 
+ * Author: Kelly B. Leo A., & Brian A.
+ * For subtask: GG-43
+*/
+
 /* Move h2 text to center of container */
 #start-view > h2 {
     text-align: center; /* Center text */
