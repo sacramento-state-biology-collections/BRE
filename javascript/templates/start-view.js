@@ -14,7 +14,7 @@ Vue.component("start-view", {
           </div>
         </button>
       </div>
-    </div>resqudaled
+    </div>
   `,
   data: function () {
     return {
