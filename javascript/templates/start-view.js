@@ -1,3 +1,6 @@
+// Author: Brian A. & Joey M.
+// For subtask: GG-42
+
 Vue.component("start-view", {
   /*html*/
   template: `
