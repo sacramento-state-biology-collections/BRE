@@ -7,7 +7,7 @@ Papa.parse("./data/mammals-collection.csv", {
     }
 });
 
-async function getEntries() {
+function getEntries() {
     let entries = {};
     for (let i = 0; i < data.length; i++) {
         entries[i] = {

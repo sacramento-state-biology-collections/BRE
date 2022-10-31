@@ -34,7 +34,7 @@ Vue.component("table-data-view", {
   `,
   data: function () {
     return {
-      Headers: new FourEntries("Header 1", "Header 2", "Header 3", "Header 4"),
+      Headers: new FourEntries("Common Name", "Scientific Name", "Prep Type", "Drawer #"),
       Rows: [],
       isVisible: false,
     };
@@ -54,14 +54,12 @@ Vue.component("table-data-view", {
     });
     this.$root.$on("load-search", (item) => {
       console.log(`table view of ${item.search} in ${item.collection}`);
-      this.Rows = [
-        new FourEntries(
-          "Row 1 Col 1",
-          "Row 1 Col 2",
-          "Row 1 Col 3",
-          "Row 1 Col 4"
-        ),
-      ];
+      let entries = getEntries();
+      let fourEntries = [];
+      for (const [key, value] of Object.entries(entries)) {
+        fourEntries.push(new FourEntries(value["Common Name"], value["Scientific Name"], value["Prep Type"], value["Drawer ."]));
+      }
+      this.Rows = fourEntries;
       this.isVisible = true;
     });
   },
