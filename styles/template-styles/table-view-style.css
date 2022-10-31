@@ -1,24 +1,29 @@
+/* Setting view port for table */
 #table-data-view {
     height: 71vh; /* 71% of the viewport height */
     margin: 20px; /* 20px margin on all sides */
     overflow: auto; /* Enable scrollbars */
 }
 
+/* Creating table style settings */
 table {
     border-collapse: collapse; /* Collapse borders */
     width: 100%; /* Full-width */
 }
 
+/* Adding style */
 table, th, td {
     border: 1px solid; /* Add borders */
     text-align: center; /* Center text */
 }
 
+/* Collapsing last column for button */
 td:last-child {
     width: 1%; /* Make the last column as small as possible */
     white-space: nowrap; /* Prevent text wrapping */
 }
 
+/* adding button style */
 td button {
     background-color: rgb(0, 78, 56); /* Set background color */
     width: 5em; /* Set width */
