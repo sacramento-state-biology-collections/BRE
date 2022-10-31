@@ -2,11 +2,12 @@
 //Subtasks: GG-47, GG-49
 
 class FourEntries {
-  constructor(Col_1, Col_2, Col_3, Col_4) {
+  constructor(Col_1, Col_2, Col_3, Col_4, Col_5) {
     this.Col_1 = Col_1;
     this.Col_2 = Col_2;
     this.Col_3 = Col_3;
     this.Col_4 = Col_4;
+    this.Col_5 = Col_5;
   }
 }
 
@@ -27,14 +28,14 @@ Vue.component("table-data-view", {
           <td>{{entry.Col_2}}</td>
           <td>{{entry.Col_3}}</td>
           <td>{{entry.Col_4}}</td>
-          <td><button class="preview" v-on:click="nextView(entry)">Preview</button></td>
+          <td><button class="preview" v-on:click="nextView(entry.Col_5)">Preview</button></td>
         </tr>
       </table>
     </div>
   `,
   data: function () {
     return {
-      Headers: new FourEntries("Common Name", "Scientific Name", "Prep Type", "Drawer #"),
+      Headers: new FourEntries("Common Name", "Scientific Name", "Prep Type", "Drawer #", ""),
       Rows: [],
       isVisible: false,
     };
@@ -57,7 +58,7 @@ Vue.component("table-data-view", {
       let entries = getEntries();
       let fourEntries = [];
       for (const [key, value] of Object.entries(entries)) {
-        fourEntries.push(new FourEntries(value["Common Name"], value["Scientific Name"], value["Prep Type"], value["Drawer ."]));
+        fourEntries.push(new FourEntries(value["Common Name"], value["Scientific Name"], value["Prep Type"], value["Drawer ."], value["Catalog ."]));
       }
       this.Rows = fourEntries;
       this.isVisible = true;
