@@ -17,7 +17,7 @@ Vue.component("search-bar", {
   `,
   data: function () {
     return {
-      title: "My Collection",
+      title: "Biology Research Engine",
       options: ["All", "Mammals", "Birds", "Reptiles", "Amphibians", "Fish"],
       searchText: "",
       collection: "All",
