@@ -1,3 +1,6 @@
+// Author: Brian A. & Joey M.
+// For subtask: GG-44, GG-45, GG-50
+
 Vue.component("search-bar", {
   /*html*/
   template: `

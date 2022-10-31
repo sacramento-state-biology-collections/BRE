@@ -1,5 +1,5 @@
 // Author: Brian A. & Joey M.
-// For subtask: GG-42, GG-51
+// For subtask: GG-42, GG-51, GG-44, GG-45
 
 Vue.component("start-view", {
   /*html*/
@@ -14,7 +14,7 @@ Vue.component("start-view", {
           </div>
         </button>
       </div>
-    </div>
+    </div>resqudaled
   `,
   data: function () {
     return {
