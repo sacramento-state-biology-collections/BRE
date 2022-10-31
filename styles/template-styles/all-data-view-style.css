@@ -23,8 +23,7 @@
 
 /* move image to top right in right div */
 #right > img {
-    height: 35%; /* Set height */
-    width: 35%; /* Set width */
+    height: 40%; /* Set height */
     margin: 1em; /* Set margin */
     position: absolute; /* Set position to absolute */
     top: 0; /* Set top to 0 */
