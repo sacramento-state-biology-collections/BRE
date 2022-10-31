@@ -1,5 +1,5 @@
 // Author: Brian A. & Joey M.
-// For subtask: GG-42
+// For subtask: GG-42, GG-51
 
 Vue.component("start-view", {
   /*html*/
