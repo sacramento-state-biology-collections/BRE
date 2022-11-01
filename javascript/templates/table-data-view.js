@@ -1,7 +1,7 @@
 //Authors: Brian A. and Joey M.
 //Subtasks: GG-47, GG-49
 
-class FourEntries {
+class FiveEntries {
   constructor(Col_1, Col_2, Col_3, Col_4, Col_5) {
     this.Col_1 = Col_1;
     this.Col_2 = Col_2;
@@ -35,7 +35,7 @@ Vue.component("table-data-view", {
   `,
   data: function () {
     return {
-      Headers: new FourEntries("Common Name", "Scientific Name", "Prep Type", "Drawer #", ""),
+      Headers: new FiveEntries("Common Name", "Scientific Name", "Prep Type", "Drawer #", ""),
       Rows: [],
       isVisible: false,
     };
@@ -58,7 +58,7 @@ Vue.component("table-data-view", {
       let entries = getEntries();
       let fourEntries = [];
       for (const [key, value] of Object.entries(entries)) {
-        fourEntries.push(new FourEntries(value["Common Name"], value["Scientific Name"], value["Prep Type"], value["Drawer ."], value["Catalog ."]));
+        fourEntries.push(new FiveEntries(value["Common Name"], value["Scientific Name"], value["Prep Type"], value["Drawer ."], value["Catalog ."]));
       }
       this.Rows = fourEntries;
       this.isVisible = true;
