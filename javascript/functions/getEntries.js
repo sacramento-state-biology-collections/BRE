@@ -41,7 +41,7 @@ function getSearch(Search, Column, Collection){
     if(Search == "")
         return entries;
 
-    // Pre-emtively remove entries that have undefined values in the search column
+    // Preemptively remove entries that have undefined values in the search column
     for (const [key, value] of Object.entries(entries)) {
         if(value[Column] == undefined)
             delete entries[key];
