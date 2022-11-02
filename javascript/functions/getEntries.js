@@ -23,23 +23,23 @@ function getEntries() {
 
 // Parameters: 
 //Search is a user inputed String
-// Column is a user selected Column
+// Collection is a user selected Collection
 
 
 //Has 3 conditions, 
-//Search & column are empty strings
-//has search, but column is empty
-// Has both Search and Column
+//Search & Collection are empty strings
+//has search, but Collection is empty
+// Has both Search and Collection
 // Nothing has been tested
-function getSearch(Search, Column){
+function getSearch(Search, Collection){
     let entries = {};
     
     //Should return everything if no search or column is specified
     //Has Neither
-    if(Search.length == 0  && Column.length == 0){
+    if(Search.length == 0){
         for (let i = 0; i < data.length; i++) {
             entries[i] = {
-                "Catalog .": data[i]["Catalog ."],
+                "Catalog .": "Catalog .",
                 "Common Name": data[i]["Common Name"],
                 "Scientific Name": data[i]["Scientific Name"],
                 "Prep Type": data[i]["Prep Type"],
@@ -47,29 +47,10 @@ function getSearch(Search, Column){
             };
     }
 
-    //Should search every element looking for a specific String, and adding only if it finds it
-
-    //** currently has a magic number
-    //Has Search
-    }else if(Search.length > 0 && Column.length == 0){
-        for (let i = 0; i < data.length; i++) {
-            for (let j = 0; j < data[i].length; i++) {
-                if (((data[i][j]).toLowerCase()).includes(Search.toLowerCase())){
-                entries[i] = {
-                    "Catalog .": data[i]["Catalog ."],
-                    "Common Name": data[i]["Common Name"],
-                    "Scientific Name": data[i]["Scientific Name"],
-                    "Prep Type": data[i]["Prep Type"],
-                    "Drawer .": data[i]["Drawer ."],
-                };
-        }
-    }
-}
-    // Has both
-    }else if(Search.length > 0 && Column.length > 0){
+}else if(Search.length > 0){
     for (let i = 0; i < data.length; i++) {     
         // Ability to search for substring and forces all things to be lower case, so case no longer matter
-        if (((data[i][Column]).toLowerCase()).includes(Search.toLowerCase())){
+        if (((data[i]["Common Name"]).toLowerCase()).includes(Search.toLowerCase())){
             entries[i] = {
                 "Catalog .": data[i]["Catalog ."],
                 "Common Name": data[i]["Common Name"],
@@ -82,6 +63,14 @@ function getSearch(Search, Column){
     }
     //This just exsists for troubleshooting Can put whatever to test is it triggers the ifs correctly
     }else{
+        entries[0] = {
+            "Catalog .": "Catalog .",
+            "Common Name": "Common Name",
+            "Scientific Name": "Scientific Name",
+            "Prep Type": "Prep Type",
+            "Drawer .": "Drawer .",
+
+        };
     return("Gasp!");   
     }
     return entries;
