@@ -36,7 +36,7 @@ function getSearch(Search, Collection){
     
     //Should return everything if no search or column is specified
     //Has Neither
-    if(Search.length == 0){
+    if(Search.length < 1){
         for (let i = 0; i < data.length; i++) {
             entries[i] = {
                 "Catalog .": data[i]["Catalog ."],
