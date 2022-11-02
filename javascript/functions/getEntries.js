@@ -71,7 +71,7 @@ function getSearch(Search, Collection){
             "Drawer .": "Drawer .",
 
         };
-    return("Gasp!");   
+    return entries;   
     }
     return entries;
 }
