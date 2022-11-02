@@ -31,7 +31,7 @@ function getEntries() {
 //has search, but Collection is empty
 // Has both Search and Collection
 // Nothing has been tested
-function getSearch(Search, Collection){
+function getSearch(Search, Column, Collection){
     let entries = {};
     
     //Should return everything if no search or column is specified
