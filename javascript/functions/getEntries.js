@@ -39,7 +39,7 @@ function getSearch(Search, Collection){
     if(Search.length == 0){
         for (let i = 0; i < data.length; i++) {
             entries[i] = {
-                "Catalog .": "Catalog .",
+                "Catalog .": data[i]["Catalog ."],
                 "Common Name": data[i]["Common Name"],
                 "Scientific Name": data[i]["Scientific Name"],
                 "Prep Type": data[i]["Prep Type"],
