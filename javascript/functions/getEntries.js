@@ -31,48 +31,40 @@ function getEntries() {
 //has search, but Collection is empty
 // Has both Search and Collection
 // Nothing has been tested
-function getSearch(Search, Column, Collection){
-    let entries = {};
+function getSearch(Search, Column, Collection){    
+    // entries variable is a dictionary of dictionaries
+    // Update getEntries() with a collection parameter later
+    let entries = getEntries();
+
+    // Search is not specified
+    // Needs update when we have more collections
+    if(Search == "")
+        return entries;
+
+    // Pre-emtively remove entries that have undefined values in the search column
+    for (const [key, value] of Object.entries(entries)) {
+        if(value[Column] == undefined)
+            delete entries[key];
+    }
+
+    // Filter by Collection Column
+    // Needs update when we have more collections
+    switch(Collection){
+        case "All":
+            for (const [key, value] of Object.entries(entries)) {
+                if(!value[Column].toLowerCase().includes(Search.toLowerCase()))
+                    delete entries[key];
+            }
+            break;
+        case "Mammals":
+            for (const [key, value] of Object.entries(entries)) {
+                if(!value[Column].toLowerCase().includes(Search.toLowerCase()))
+                    delete entries[key];
+            }
+            break;
+    }
     
-    //Should return everything if no search or column is specified
-    //Has Neither
-    if(Search.length < 1){
-        for (let i = 0; i < data.length; i++) {
-            entries[i] = {
-                "Catalog .": data[i]["Catalog ."],
-                "Common Name": data[i]["Common Name"],
-                "Scientific Name": data[i]["Scientific Name"],
-                "Prep Type": data[i]["Prep Type"],
-                "Drawer .": data[i]["Drawer ."],
-            };
-    }
-
-}else if(Search.length > 0){
-    for (let i = 0; i < data.length; i++) {     
-        // Ability to search for substring and forces all things to be lower case, so case no longer matter
-        if (((data[i]["Common Name"]).toLowerCase()).includes(Search.toLowerCase())){
-            entries[i] = {
-                "Catalog .": data[i]["Catalog ."],
-                "Common Name": data[i]["Common Name"],
-                "Scientific Name": data[i]["Scientific Name"],
-                "Prep Type": data[i]["Prep Type"],
-                "Drawer .": data[i]["Drawer ."],
-
-            };
-    }
-    }
-    //This just exsists for troubleshooting Can put whatever to test is it triggers the ifs correctly
-    }else{
-        entries[0] = {
-            "Catalog .": "Catalog .",
-            "Common Name": "Common Name",
-            "Scientific Name": "Scientific Name",
-            "Prep Type": "Prep Type",
-            "Drawer .": "Drawer .",
-
-        };
-    return entries;   
-    }
+    // Return the filtered entries
     return entries;
 }
 

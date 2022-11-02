@@ -55,7 +55,7 @@ Vue.component("table-data-view", {
     });
     this.$root.$on("load-search", (item) => {
       console.log(`table view of ${item.search} in ${item.collection}`);
-      let entries = getSearch(this.search, this.collection);
+      let entries = getSearch(String(item.search), "Common Name", String(item.collection));
       let fourEntries = [];
       for (const [key, value] of Object.entries(entries)) {
         fourEntries.push(new FiveEntries(value["Common Name"], value["Scientific Name"], value["Prep Type"], value["Drawer ."], value["Catalog ."]));
