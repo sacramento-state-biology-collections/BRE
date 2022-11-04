@@ -9,7 +9,7 @@ Vue.component("search-bar", {
             <h1>{{title}}</h1>
             <div id="search-cluster">
                 <button class="home" v-on:click="loadHome"><img id="home-button-img" src="./styles/stylephotos/Home_Button.svg" alt="Home"></button>
-                <input type="text" v-model="searchText" v-bind:placeholder="placeholder"/>
+                <input type="text" v-model="searchText" v-bind:placeholder="placeholder" v-on:keyup.enter="onEnter"/>
                 <select title="Collections" name="Collections" id="Collections" v-on:change="update">
                     <option v-for="option in options" v-bind:value="option">{{option}}</option>
                 </select>
@@ -29,6 +29,9 @@ Vue.component("search-bar", {
     };
   },
   methods: {
+    onEnter: function () {
+      this.nextView();
+    },
     update: function (event) {
       this.collection = event.target.value;
       this.placeholder = "Search " + event.target.value;
