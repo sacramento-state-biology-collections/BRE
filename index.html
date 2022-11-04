@@ -7,9 +7,17 @@
     <link rel="manifest" href="./manifest.json" />
     <link rel="icon" href="./icons/favicon.ico" />
     <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
-    <title>BRE App</title>
+    <meta class="theme-color" name="theme-color" content="#008453" />
+    <title>BRE</title>
   </head>
   <body>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("sw.js").then(function (registration) {
+          console.log("Service Worker Registered");
+        });
+      }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="./javascript/functions/papaparse.min.js"></script>
     <script src="./javascript/functions/getEntries.js"></script>
