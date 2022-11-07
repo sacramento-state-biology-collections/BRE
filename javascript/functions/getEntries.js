@@ -7,7 +7,84 @@ Papa.parse("./data/mammals-collection.csv", {
     }
 });
 
+const indexedDB = 
+    window.indexedDB ||
+    window.mozIndexedDB || 
+    window.webkitIndexedDB || 
+    window.msIndexedDB || 
+    window.shimIndexedDB
+
+const request = indexedDB.open("MammalDatabase", 1);
+
+request.onerror = function (event) {
+    console.error("An error occurred with IndexedDB")
+    console.error(event);
+};
+
+request.onupgradeneeded = function () {
+    db = request.result;
+    const store = db.createObjectStore("mammals",{keyPath: "catalog"});
+    //store.createIndex("Common_Name", ["Common Name"], {unique: false});
+    //store.createIndex("Scientific_Name", ["Scientific name"], {unique: false});
+};
+
+request.onsuccess = function (){
+    db = request.result;
+    const transaction = db.transaction("mammals", "readwrite");
+
+    const store = transaction.objectStore("mammals");
+    //const commonIndex = store.index("common_name");
+    //const scientificIndex = store.index("scientific_name");
+
+    let temp = 0;
+    entries = {}
+    
+    for(let i = 0; i < data.length; i++)
+    {   
+        //console.log(data[i]["Catalog ."])
+        temp =  parseInt(data[i]["Catalog ."], 10)
+        //console.log(temp)
+        try{
+        store.put({ catalog: temp, Common_Name: data[i]["Common Name"], Scientific_Name: data[i]["Scientific Name"], Prep_Type: data[i]["Prep Type"], Drawer: data[i]["Drawer ."]});
+        } catch (error) 
+        {}
+    }
+
+}
+    
+        
+
+
+
+/*function getEntries()
+{
+    let tactn = db.transaction("mammals", "readonly");
+    let osc = tactn.objectStore("mammals").openCursor();
+    let entries = {};
+    let i = 0;
+    osc.onsuccess = function(e) {
+        let cursor = e.target.result
+        if (cursor) 
+		{
+            entries[i] = 
+            {
+                "Catalog .": cursor.value["catalog"],
+                "Common Name": cursor.value["Common_Name"],
+                "Scientific Name": cursor.value["Scientific_Name"],
+                "Prep Type": cursor.value["Prep_Type"],
+                "Drawer .": cursor.value["Drawer"],
+            };
+            cursor.continue()
+            i++;
+            //console.log(entries[i])
+        }    
+    } 
+    return entries;
+}*/
+
+
 function getEntries() {
+    
     let entries = {};
     for (let i = 0; i < data.length; i++) {
         entries[i] = {
@@ -18,6 +95,7 @@ function getEntries() {
             "Drawer .": data[i]["Drawer ."],
         };
     }
+
     return entries;
 }
 
@@ -44,7 +122,7 @@ function getSearch(Search, Column, Collection){
     // Preemptively remove entries that have undefined values in the search column
     for (const [key, value] of Object.entries(entries)) {
         if(value[Column] == undefined)
-            delete entries[key];
+        delete entries[key];
     }
 
     // Filter by Collection Column
