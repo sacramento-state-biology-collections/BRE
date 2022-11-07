@@ -35,7 +35,13 @@ Vue.component("table-data-view", {
   `,
   data: function () {
     return {
-      Headers: new FiveEntries("Common Name", "Scientific Name", "Prep Type", "Drawer #", ""),
+      Headers: new FiveEntries(
+        "Common Name",
+        "Scientific Name",
+        "Prep Type",
+        "Drawer #",
+        ""
+      ),
       Rows: [],
       isVisible: false,
     };
@@ -61,8 +67,18 @@ Vue.component("table-data-view", {
       entries.onsuccess = function () {
         entries = entries.result;
         for (const [key, value] of Object.entries(entries)) {
-          if (value.Common_Name.toLowerCase().includes(item.search.toLowerCase())) {
-            fourEntries.push(new FiveEntries(value.Common_Name, value.Scientific_Name, value.Prep_Type, value.Drawer, value.catalog));
+          if (
+            value.Common_Name.toLowerCase().includes(item.search.toLowerCase())
+          ) {
+            fourEntries.push(
+              new FiveEntries(
+                value.Common_Name,
+                value.Scientific_Name,
+                value.Prep_Type,
+                value.Drawer,
+                value.catalog
+              )
+            );
           }
         }
       };

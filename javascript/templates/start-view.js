@@ -19,7 +19,14 @@ Vue.component("start-view", {
   data: function () {
     return {
       collections: {
-        Animals: ["Amphibians", "Arthropods", "Mammals", "Reptiles", "Birds", "Fish"],
+        Animals: [
+          "Amphibians",
+          "Arthropods",
+          "Mammals",
+          "Reptiles",
+          "Birds",
+          "Fish",
+        ],
         Birds: ["Birds"],
         Fish: ["Fish"],
         Invertebrates: ["Invertebrates"],

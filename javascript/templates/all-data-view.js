@@ -33,10 +33,10 @@ Vue.component("all-data-view", {
       console.log("loading view");
       this.$root.$emit("search-bar", {
         isVisible: true,
-      })
+      });
       this.$root.$emit("table-data-view", {
         isVisible: true,
-      })
+      });
       this.isVisible = false;
     },
   },

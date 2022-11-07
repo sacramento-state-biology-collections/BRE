@@ -42,18 +42,18 @@ Vue.component("preview-data-view", {
   methods: {
     nextView: function () {
       console.log("loading view");
-      this.$root.$emit("search-bar",{
+      this.$root.$emit("search-bar", {
         isVisible: false,
-      })
-      this.$root.$emit("table-data-view",{
+      });
+      this.$root.$emit("table-data-view", {
         isVisible: false,
-      })
-      this.$root.$emit("preview-data-view",{
+      });
+      this.$root.$emit("preview-data-view", {
         isVisible: false,
-      })
-      this.$root.$emit("all-data-view",{
+      });
+      this.$root.$emit("all-data-view", {
         isVisible: true,
-      })
+      });
     },
     prevView: function () {
       console.log("loading view");
