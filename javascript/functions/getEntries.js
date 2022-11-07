@@ -49,80 +49,19 @@ request.onsuccess = function (){
         } catch (error) 
         {}
     }
-
 }
-    
-        
-
-
 
 function getEntries() {
     // Make a transaction to the database
     const transaction = db.transaction("mammals", "readonly");
     // Get the store
     const store = transaction.objectStore("mammals");
-    // Get all the entries results
+    // Get all the entries results synchronously
     const results = store.getAll();
-    // Wait for the results to be returned
-    results.onsuccess = function(){
-        // Get the results
-        const entries = results.result;
-        // Do something with the results
-        console.log(entries);
-    }
     // Return the results
     return results;
-
-    // let transaction = db.transaction("mammals", "readonly");
-    // let cursor = transaction.objectStore("mammals").openCursor();
-    // let entries = {};
-    // let i = 0;
-    // cursor.onsuccess = function(e) {
-    //     let cursor = e.target.result
-    //     if (cursor) 
-	// 	{
-    //         entries[i] = 
-    //         {
-    //             "Catalog .": cursor.value["catalog"],
-    //             "Common Name": cursor.value["Common_Name"],
-    //             "Scientific Name": cursor.value["Scientific_Name"],
-    //             "Prep Type": cursor.value["Prep_Type"],
-    //             "Drawer .": cursor.value["Drawer"],
-    //         };
-    //         cursor.continue()
-    //         i++;
-    //         //console.log(entries[i])
-    //     }    
-    // } 
-    // return entries;
 }
 
-
-/*function getEntries() {
-    let entries = {};
-    for (let i = 0; i < data.length; i++) {
-        entries[i] = {
-            "Catalog .": data[i]["Catalog ."],
-            "Common Name": data[i]["Common Name"],
-            "Scientific Name": data[i]["Scientific Name"],
-            "Prep Type": data[i]["Prep Type"],
-            "Drawer .": data[i]["Drawer ."],
-        };
-    }
-
-    return entries;
-}*/
-
-// Parameters: 
-//Search is a user inputed String
-// Collection is a user selected Collection
-
-
-//Has 3 conditions, 
-//Search & Collection are empty strings
-//has search, but Collection is empty
-// Has both Search and Collection
-// Nothing has been tested
 function getSearch(Search, Column, Collection){    
     // entries variable is a dictionary of dictionaries
     // Update getEntries() with a collection parameter later
