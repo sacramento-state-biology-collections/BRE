@@ -79,6 +79,16 @@ Vue.component("table-data-view", {
                 value.catalog
               )
             );
+          } else if (item.search == "") {
+            fourEntries.push(
+              new FiveEntries(
+                value.Common_Name,
+                value.Scientific_Name,
+                value.Prep_Type,
+                value.Drawer,
+                value.catalog
+              )
+            );
           }
         }
       };
