@@ -98,7 +98,7 @@ Vue.component("all-data-view", {
       </div>
       <div id="center">
         <p v-for="item in data">
-          catalog: {{item.Col_1}} <br><br> 
+          Catalog: {{item.Col_1}} <br><br> 
           Common Name: {{item.Col_2}} <br><br> 
           Scientific Name: {{item.Col_3}} <br><br> 
           Prep Type: {{item.Col_4}} <br><br> 
