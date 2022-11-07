@@ -14,12 +14,19 @@ Vue.component("start-view", {
           </div>
         </button>
       </div>
-    </div>resqudaled
+    </div>
   `,
   data: function () {
     return {
       collections: {
-        Animals: ["Amphibians", "Arthropods", "Mammals", "Reptiles", "Birds", "Fish"],
+        Animals: [
+          "Amphibians",
+          "Arthropods",
+          "Mammals",
+          "Reptiles",
+          "Birds",
+          "Fish",
+        ],
         Birds: ["Birds"],
         Fish: ["Fish"],
         Invertebrates: ["Invertebrates"],

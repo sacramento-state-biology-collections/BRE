@@ -1,12 +1,13 @@
 //Authors: Brian A. and Joey M.
 //Subtasks: GG-47, GG-49
 
-class FourEntries {
-  constructor(Col_1, Col_2, Col_3, Col_4) {
+class FiveEntries {
+  constructor(Col_1, Col_2, Col_3, Col_4, Col_5) {
     this.Col_1 = Col_1;
     this.Col_2 = Col_2;
     this.Col_3 = Col_3;
     this.Col_4 = Col_4;
+    this.Col_5 = Col_5;
   }
 }
 
@@ -27,14 +28,20 @@ Vue.component("table-data-view", {
           <td>{{entry.Col_2}}</td>
           <td>{{entry.Col_3}}</td>
           <td>{{entry.Col_4}}</td>
-          <td><button class="preview" v-on:click="nextView(entry)">Preview</button></td>
+          <td><button class="preview" v-on:click="nextView(entry.Col_5)">Preview</button></td>
         </tr>
       </table>
     </div>
   `,
   data: function () {
     return {
-      Headers: new FourEntries("Header 1", "Header 2", "Header 3", "Header 4"),
+      Headers: new FiveEntries(
+        "Common Name",
+        "Scientific Name",
+        "Prep Type",
+        "Drawer #",
+        ""
+      ),
       Rows: [],
       isVisible: false,
     };
@@ -54,14 +61,38 @@ Vue.component("table-data-view", {
     });
     this.$root.$on("load-search", (item) => {
       console.log(`table view of ${item.search} in ${item.collection}`);
-      this.Rows = [
-        new FourEntries(
-          "Row 1 Col 1",
-          "Row 1 Col 2",
-          "Row 1 Col 3",
-          "Row 1 Col 4"
-        ),
-      ];
+      let entries = getSearch();
+      let fourEntries = [];
+      // handle the promise from getSearch
+      entries.onsuccess = function () {
+        entries = entries.result;
+        for (const [key, value] of Object.entries(entries)) {
+          if (
+            value.Common_Name.toLowerCase().includes(item.search.toLowerCase())
+          ) {
+            fourEntries.push(
+              new FiveEntries(
+                value.Common_Name,
+                value.Scientific_Name,
+                value.Prep_Type,
+                value.Drawer,
+                value.catalog
+              )
+            );
+          } else if (item.search == "") {
+            fourEntries.push(
+              new FiveEntries(
+                value.Common_Name,
+                value.Scientific_Name,
+                value.Prep_Type,
+                value.Drawer,
+                value.catalog
+              )
+            );
+          }
+        }
+      };
+      this.Rows = fourEntries;
       this.isVisible = true;
     });
   },
