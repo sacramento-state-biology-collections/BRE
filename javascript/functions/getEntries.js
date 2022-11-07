@@ -51,58 +51,13 @@ request.onsuccess = function (){
     }
 }
 
-function getEntries() {
-    // Make a transaction to the database
+function getSearch(){    
     const transaction = db.transaction("mammals", "readonly");
-    // Get the store
     const store = transaction.objectStore("mammals");
-    // Get all the entries results synchronously
-    const results = store.getAll();
-    // Return the results
-    return results;
+    const getEntries = store.getAll();
+    return(getEntries);
 }
 
-function getSearch(Search, Column, Collection){    
-    // entries variable is a dictionary of dictionaries
-    // Update getEntries() with a collection parameter later
-    let entries = getEntries();
-
-    // Search is not specified
-    // Needs update when we have more collections
-    if(Search == "")
-        return entries;
-
-    // Preemptively remove entries that have undefined values in the search column
-    for (const [key, value] of Object.entries(entries)) {
-        if(value[Column] == undefined)
-        delete entries[key];
-    }
-
-    // Filter by Collection Column
-    // Needs update when we have more collections
-    switch(Collection){
-        case "All":
-            for (const [key, value] of Object.entries(entries)) {
-                if(!value[Column].toLowerCase().includes(Search.toLowerCase()))
-                    delete entries[key];
-            }
-            break;
-        case "Mammals":
-            for (const [key, value] of Object.entries(entries)) {
-                if(!value[Column].toLowerCase().includes(Search.toLowerCase()))
-                    delete entries[key];
-            }
-            break;
-    }
-    
-    // Return the filtered entries
-    return entries;
-}
-
-//Parameters:
-//Catalog:
-
-// Just takes in the Catalog Number and returns the 
 function getPreview(Catalog){
     return(Catalog);
 }

@@ -55,11 +55,17 @@ Vue.component("table-data-view", {
     });
     this.$root.$on("load-search", (item) => {
       console.log(`table view of ${item.search} in ${item.collection}`);
-      let entries = getSearch(String(item.search), "Common Name", String(item.collection));
+      let entries = getSearch();
       let fourEntries = [];
-      for (const [key, value] of Object.entries(entries)) {
-        fourEntries.push(new FiveEntries(value["Common Name"], value["Scientific Name"], value["Prep Type"], value["Drawer ."], value["Catalog ."]));
-      }
+      // handle the promise from getSearch
+      entries.onsuccess = function () {
+        entries = entries.result;
+        for (const [key, value] of Object.entries(entries)) {
+          if (value.Common_Name.toLowerCase().includes(item.search.toLowerCase())) {
+            fourEntries.push(new FiveEntries(value.Common_Name, value.Scientific_Name, value.Prep_Type, value.Drawer, value.catalog));
+          }
+        }
+      };
       this.Rows = fourEntries;
       this.isVisible = true;
     });
