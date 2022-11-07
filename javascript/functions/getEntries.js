@@ -59,5 +59,15 @@ function getSearch(){
 }
 
 function getPreview(Catalog){
-    return(Catalog);
+    const transaction = db.transaction("mammals", "readonly");
+    const store = transaction.objectStore("mammals");
+    const getEntry = store.get(Catalog);
+    return(getEntry);
+}
+
+function getView(Catalog){
+    const transaction = db.transaction("mammals", "readonly");
+    const store = transaction.objectStore("mammals");
+    const getEntry = store.get(Catalog);
+    return(getEntry);
 }
