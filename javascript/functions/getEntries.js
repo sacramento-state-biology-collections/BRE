@@ -56,35 +56,49 @@ request.onsuccess = function (){
 
 
 
-/*function getEntries()
-{
-    let tactn = db.transaction("mammals", "readonly");
-    let osc = tactn.objectStore("mammals").openCursor();
-    let entries = {};
-    let i = 0;
-    osc.onsuccess = function(e) {
-        let cursor = e.target.result
-        if (cursor) 
-		{
-            entries[i] = 
-            {
-                "Catalog .": cursor.value["catalog"],
-                "Common Name": cursor.value["Common_Name"],
-                "Scientific Name": cursor.value["Scientific_Name"],
-                "Prep Type": cursor.value["Prep_Type"],
-                "Drawer .": cursor.value["Drawer"],
-            };
-            cursor.continue()
-            i++;
-            //console.log(entries[i])
-        }    
-    } 
-    return entries;
-}*/
-
-
 function getEntries() {
-    
+    // Make a transaction to the database
+    const transaction = db.transaction("mammals", "readonly");
+    // Get the store
+    const store = transaction.objectStore("mammals");
+    // Get all the entries results
+    const results = store.getAll();
+    // Wait for the results to be returned
+    results.onsuccess = function(){
+        // Get the results
+        const entries = results.result;
+        // Do something with the results
+        console.log(entries);
+    }
+    // Return the results
+    return results;
+
+    // let transaction = db.transaction("mammals", "readonly");
+    // let cursor = transaction.objectStore("mammals").openCursor();
+    // let entries = {};
+    // let i = 0;
+    // cursor.onsuccess = function(e) {
+    //     let cursor = e.target.result
+    //     if (cursor) 
+	// 	{
+    //         entries[i] = 
+    //         {
+    //             "Catalog .": cursor.value["catalog"],
+    //             "Common Name": cursor.value["Common_Name"],
+    //             "Scientific Name": cursor.value["Scientific_Name"],
+    //             "Prep Type": cursor.value["Prep_Type"],
+    //             "Drawer .": cursor.value["Drawer"],
+    //         };
+    //         cursor.continue()
+    //         i++;
+    //         //console.log(entries[i])
+    //     }    
+    // } 
+    // return entries;
+}
+
+
+/*function getEntries() {
     let entries = {};
     for (let i = 0; i < data.length; i++) {
         entries[i] = {
@@ -97,7 +111,7 @@ function getEntries() {
     }
 
     return entries;
-}
+}*/
 
 // Parameters: 
 //Search is a user inputed String
