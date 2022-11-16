@@ -11,6 +11,12 @@
     <title>BRE</title>
   </head>
   <body>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/workbox-sw/6.5.4/workbox-sw.js"
+      integrity="sha512-67SvZhe5uoMrETb1EY+36lHSWb1tm00s2hGltpC8vN8OfepOJ3FXdhr5H6pW+SJLgo42pP329a68HwpbahPU5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script>
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("sw.js").then(function (registration) {
