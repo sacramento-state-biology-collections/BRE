@@ -1,8 +1,8 @@
 //Authors: Brian A. and Joey M.
 //Subtasks: GG-47, GG-49
 
-class SevenEntries {
-  constructor(Col_1, Col_2, Col_3, Col_4, Col_5, Col_6, Col_7) {
+class EightEntries {
+  constructor(Col_1, Col_2, Col_3, Col_4, Col_5, Col_6, Col_7, Col_8) {
     this.Col_1 = Col_1;
     this.Col_2 = Col_2;
     this.Col_3 = Col_3;
@@ -10,6 +10,7 @@ class SevenEntries {
     this.Col_5 = Col_5;
     this.Col_6 = Col_6;
     this.Col_7 = Col_7;
+    this.Col_8 = Col_8;
   }
 }
 
@@ -32,7 +33,8 @@ Vue.component("preview-data-view", {
           Drawer: {{item.Col_4}} <br><br>
           Available: {{item.Col_5}} <br><br>
           Age: {{item.Col_6}} <br><br>
-          Cabinet: {{item.Col_7}}
+          Cabinet: {{item.Col_7}} <br><br>
+          Location: {{item.Col_8}}
         </p>
       </div>
       <div id="bottom">
@@ -74,22 +76,23 @@ Vue.component("preview-data-view", {
     this.$root.$on("preview-data-view", (data) => {
       if (data.entry != null) {
         let entry = getEntry(data.entry);
-        let sevenEntries = [];
+        let eightEntries = [];
         entry.onsuccess = function () {
           entry = entry.result;
-          sevenEntries.push(
-            new SevenEntries(
+          eightEntries.push(
+            new EightEntries(
               entry.Common_Name,
               entry.Scientific_Name,
               entry.Prep_Type,
               entry.Drawer,
               entry.Available,
               entry.Age,
-              entry.Cabinet
+              entry.Cabinet,
+              entry.Location
             )
           );
         };
-        this.data = sevenEntries;
+        this.data = eightEntries;
         this.isVisible = data.isVisible;
         this.entry = data.entry;
       } else {
