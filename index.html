@@ -11,11 +11,14 @@
     <title>BRE</title>
   </head>
   <body>
-    <script>
+    <script type="module">
+      import { Workbox } from "https://storage.googleapis.com/workbox-cdn/releases/6.2.0/workbox-window.prod.mjs";
       if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("sw.js").then(function (registration) {
-          console.log("Service Worker Registered");
-        });
+        const wb = new Workbox("/sw.js");
+        wb.register();
+        const swVersion = await wb.messageSW({ type: "GET_VERSION" });
+        console.log("Service Worker Registered");
+        console.log("Service Worker version:", swVersion);
       }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

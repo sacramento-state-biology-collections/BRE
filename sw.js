@@ -4,38 +4,28 @@ importScripts(
   "https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js"
 );
 
-var cacheName = "assests";
-//Temporary cache will change later
-var cacheFiles = ["./index.html"];
+// Fallback Page
+// setDefaultHandler(
+//   new NetworkOnly()
+// );
+// offlineFallback();
 
-self.addEventListener("install", function (e) {
-  console.log("[ServiceWorker] Installed");
-  e.waitUntil(
-    caches.open(cacheName).then(function (cache) {
-      console.log("[ServiceWorker] caching cacheFiles");
-      return cache.addAll(cacheFiles);
-    })
-  );
+const SW_VERSION = "1.0.0";
+
+self.addEventListener("message", (event) => {
+  if (event.data.type === "GET_VERSION") {
+    event.ports[0].postMessage(SW_VERSION);
+  }
 });
 
-self.addEventListener("activate", function (e) {
-  console.log("[ServiceWorker] Activated");
-  e.waitUntil(
-    caches.keys().then(function (cacheNames) {
-      return Promise.all(
-        cacheNames.map(function (thisCacheName) {
-          if (thisCacheName !== cacheName) {
-            console.log(
-              "[ServiceWorker] Removing Cached Files From",
-              thisCacheName
-            );
-            return caches.delete(thisCacheName);
-          }
-        })
-      );
-    })
-  );
-});
+//redister route for CSS & JS files
+workbox.routing.registerRoute(
+  ({ request }) =>
+    request.destination === "style" || request.destination === "script",
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: "static-assets",
+  })
+);
 
 // register route for images
 workbox.routing.registerRoute(
