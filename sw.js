@@ -40,3 +40,17 @@ workbox.routing.registerRoute(
     ],
   })
 );
+
+// fetch json from the REST API at http://localhost:50500/api/v1/mammals
+workbox.routing.registerRoute(
+  () => "http://localhost:105/api/v1/mammals",
+  new workbox.strategies.NetworkFirst({
+    cacheName: "mammals",
+    plugins: [
+      new workbox.expiration.ExpirationPlugin({
+        maxEntries: 50,
+        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+      }),
+    ],
+  })
+);
