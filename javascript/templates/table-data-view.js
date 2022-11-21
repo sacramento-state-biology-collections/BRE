@@ -39,7 +39,7 @@ Vue.component("table-data-view", {
         "Common Name",
         "Scientific Name",
         "Prep Type",
-        "Drawer #",
+        "Location",
         ""
       ),
       Rows: [],
@@ -75,7 +75,7 @@ Vue.component("table-data-view", {
                 value.Common_Name,
                 value.Scientific_Name,
                 value.Prep_Type,
-                value.Drawer,
+                value.Location,
                 value.catalog
               )
             );
@@ -85,7 +85,7 @@ Vue.component("table-data-view", {
                 value.Common_Name,
                 value.Scientific_Name,
                 value.Prep_Type,
-                value.Drawer,
+                value.Location,
                 value.catalog
               )
             );
