@@ -41,16 +41,28 @@ workbox.routing.registerRoute(
   })
 );
 
-// fetch json from the REST API at http://localhost:50500/api/v1/mammals
-workbox.routing.registerRoute(
-  () => "http://localhost:105/api/v1/mammals",
-  new workbox.strategies.NetworkFirst({
-    cacheName: "mammals",
-    plugins: [
-      new workbox.expiration.ExpirationPlugin({
-        maxEntries: 50,
-        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
-      }),
-    ],
-  })
-);
+// register a event listener for fetch
+self.addEventListener("fetch", (event) => {
+  // check if event is a api call
+  if (event.request.url.includes("/api/v1/")) {
+    // Cache First, fallback to network
+    event.respondWith(
+      caches.open("api-cache").then((cache) => {
+        // return cache if available
+        return cache.match(event.request).then((response) => {
+          // return response if available
+          if (response) {
+            return response;
+          }
+          // fetch from network
+          return fetch(event.request).then((response) => {
+            // cache response
+            cache.put(event.request, response.clone());
+            // return response
+            return response;
+          });
+        });
+      })
+    );
+  }
+});
